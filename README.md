@@ -3,16 +3,26 @@
 
 # Question 1 (Naked Twins)
 Q: How do we use constraint propagation to solve the naked twins problem?  
-A: The constraint here is that given two boxes in the same unit with the same value of two digits, these two digits are
-excluded from all the other boxes in the same unit. Constraint propagation in this case is used going through all the units
-using the above constraint to reduce the puzzle
+A: The constraint: given two boxes in the same unit with the same value of two digits, these two digits are
+excluded as possible values for all the other boxes in the same unit. When applying constraint propagation to solve a sudoku puzzle
+this exclusion strategy is used for every unit in the sudoku, and wherever naked twins are found it may help to reduce the number of
+possible values by two. In the project, it helps to further reduce the puzzle (since it is a different constraint in nature compared to elimination
+or only choice) and reach faster a potential solution. As an example, let's say we have a unit with the values/possibilities,
+[25, 3, 647, 45 ,1 , 45, 3456, 9, 8]. A quick inspection shows that box 4 and 6 are naked (visible) twins (couple). Since there are only
+two possible solutions: box4=4 and box6=5 or box4=5 and box6=4, these two numbers are excluded from all the other boxes in the unit.
+ Therefore, box 1 is reduced from 25 to 2, box 3 from 647 to 67, box 7 is reduced from 3456 to 36 and we get a new simplified unit:
+ [2, 3 , 67, 45 , 1, 45, 36, 9 , 8]. This constraint propagated through all the units helps to reduce the whole puzzle.
 
 # Question 2 (Diagonal Sudoku)
-Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
-A: The constraint in this case is that for every diagonal, row, column or region there is a unique set of numbers from 1 to 9.
-This way, we just need to add two new units (one for diagonal from top right to bottom left, one for diagonal from top left to
-bottom right) to the nine for all the rows, nine for all the columns and nine for all the regions. Constraint propagation use
-the constraint of unique set of numbers from 1 to 9, in all these 29 units to solve the diagonal sudoku problem.
+Q: How do we use constraint propagation to solve the diagonal sudoku problem?
+A: The constraint: for every unit there is a unique set of numbers from 1 to 9. The regular sudoku puzzle
+only requires to propagate this constraint for rows, columns and regions. When we are dealing with a diagonal sudoku puzzle, we need
+to include two additional units where this elimination constraint has to be applied: one for the diagonal from top right to bottom left,
+one for the diagonal from top left to bottom right. This new set is added to the whole set of units required to solve just the
+regular sudoku, getting a new total of 29 units (instead of the 27 units for the model of a regular sudoku). Once these units are
+defined, the constraint 'elimination' (unique set of numbers from 1 to 9 for each unit) can be propagated through all the units, helping
+to reduce the puzzle and combined with other techniques (naked twins, only choice, etc) to reach a solution where for every unit,
+there is a unique set from 1 to 9.
 
 ### Install
 
