@@ -19,14 +19,8 @@ column_units = [cross(rows, c) for c in cols]
 square_units = [cross(rs, cs) for rs in ('ABC','DEF','GHI') for cs in ('123','456','789')]
 
 if (isSudokuDiagonal):
-    a = [s for s in 'ABCDEFGHI']
-    b = [s for s in '123456789']
-    #One of the diagonal unit
-    x1 = ["".join(item) for item in zip(a, b)]
-    #The other diagonal unit
-    a.reverse()
-    x2 = ["".join(item) for item in zip(a, b)]
-    diagonal_units = [x1]+[x2]
+    #Generates both diagonals of the 9x9 grid
+    diagonal_units = [[s+t for s,t in zip(rows,cols)],[s+t for s,t in zip(rows,cols[::-1])]]
     unitlist = row_units + column_units + square_units + diagonal_units
 else:
     unitlist = row_units + column_units + square_units
