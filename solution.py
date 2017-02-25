@@ -6,7 +6,7 @@ rows = 'ABCDEFGHI'
 cols = '123456789'
 
 #Switch to define if the sudoku to solve is a regular one or one with diagonal restrictions
-isSudokuDiagonal = False
+isSudokuDiagonal = True
 
 def cross(A, B):
     "Cross product of elements in A and elements in B."
