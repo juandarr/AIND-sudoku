@@ -59,4 +59,4 @@ The data consists of a text file of diagonal sudokus for you to solve.
 
 Copyright (c) Udacity and Juan David Rios. All rights reserved.
 
-Licensed under the [MIT](https://github.com/juandarr/Sudoku-solver/blob/master/LICENSE) License.
+Licensed under the [MIT](https://github.com/juandarr/Sudoku-agent/blob/master/LICENSE) License.
