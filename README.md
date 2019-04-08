@@ -1,7 +1,10 @@
-# Artificial Intelligence Nanodegree
-## Introductory Project: Diagonal Sudoku Solver
+# Sudoku agent solver
 
-# Question 1 (Naked Twins)
+This program includes a Sudoku agent solver using several search and contraint propagation strategies as heuristics given any initial Sudoku configuration.
+
+## Estrategies
+
+### Naked Twins
 Q: How do we use constraint propagation to solve the naked twins problem?  
 A: The constraint: given two boxes in the same unit with the same value of two digits, these two digits can only be
 included in these two boxes. Implication: these two digits are excluded as possible values for all the other boxes in the same unit.
@@ -14,7 +17,7 @@ these two numbers are excluded from all the other boxes in the unit. Therefore, 
 box 7 is reduced from 3456 to 36 and we get a new simplified unit: [2, 3 , 67, 45 , 1, 45, 36, 9 , 8]. This constraint propagated
 through all the units helps to reduce the whole puzzle.
 
-# Question 2 (Diagonal Sudoku)
+### Diagonal Sudoku
 Q: How do we use constraint propagation to solve the diagonal sudoku problem?
 A: The constraint: for every unit there is a unique set of numbers from 1 to 9. In the regular sudoku puzzle we
 only propagate this constraint for rows, columns and regions. When we are dealing with a diagonal sudoku puzzle, we need
@@ -25,12 +28,11 @@ defined, the constraint 'elimination' (unique set of numbers from 1 to 9 for eac
 to reduce the puzzle and combined with other techniques (naked twins, only choice, etc) to reach a solution where for every unit,
 there is a unique set from 1 to 9.
 
-### Install
+# Instructions
 
 This project requires **Python 3**.
 
-We recommend students install [Anaconda](https://www.continuum.io/downloads), a pre-packaged Python distribution that contains all of the necessary libraries and software for this project. 
-Please try using the environment we provided in the Anaconda lesson of the Nanodegree.
+We recommend the installation of [Anaconda](https://www.continuum.io/downloads), a pre-packaged Python distribution that contains all of the necessary libraries and software for this project. 
 
 ##### Optional: Pygame
 
@@ -52,3 +54,9 @@ To visualize your solution, please only assign values to the values_dict using t
 ### Data
 
 The data consists of a text file of diagonal sudokus for you to solve.
+
+# License
+
+Copyright (c) Udacity and Juan David Rios. All rights reserved.
+
+Licensed under the [MIT](https://github.com/juandarr/Sudoku-solver/blob/master/LICENSE) License.
