@@ -2,7 +2,7 @@
 
 This program includes a Sudoku agent solver using several search and contraint propagation strategies as heuristics given any initial Sudoku configuration.
 
-## Estrategies
+## Strategies
 
 ### Naked Twins
 
