@@ -39,7 +39,7 @@ If not, please see how to download pygame [here](http://www.pygame.org/download.
 
 ### Code
 
-* `solutions.py` - This file contains the implementation of the strategies.
+* `solutions.py` - This file contains the implementation of the strategies. Run the agent with `python solution.py`. It will use Pygame if you have it installed in your system, otherwise it will print the solution on the terminal prompt.
 * `solution_test.py` - Do not modify this. You can test your solution by running `python solution_test.py`.
 * `PySudoku.py` - Do not modify this. This is code for visualizing your solution.
 * `visualize.py` - Do not modify this. This is code for visualizing your solution.
