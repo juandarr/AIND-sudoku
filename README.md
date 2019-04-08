@@ -5,9 +5,9 @@ This program includes a Sudoku agent solver using several search and contraint p
 ## Estrategies
 
 ### Naked Twins
-Q: How do we use constraint propagation to solve the naked twins problem?  
-A: The constraint: given two boxes in the same unit with the same value of two digits, these two digits can only be
-included in these two boxes. Implication: these two digits are excluded as possible values for all the other boxes in the same unit.
+
+In this section we use constraint propagation to solve the naked twins problem. The constraint: given two boxes in the same unit with the same possible values of two digits, these two digits can only be included in these two boxes. 
+Implication: these two digits are excluded as possible values for all the other boxes in the same unit.
 When applying constraint propagation to solve a sudoku puzzle this exclusion strategy is used for every unit in the sudoku, and wherever
 naked twins are found it may help to reduce the number of possible values by two. In the project, it helps to further reduce the
 puzzle (since it is a different constraint in nature compared to elimination or only choice) and reach faster a potential solution.
@@ -18,11 +18,8 @@ box 7 is reduced from 3456 to 36 and we get a new simplified unit: [2, 3 , 67, 4
 through all the units helps to reduce the whole puzzle.
 
 ### Diagonal Sudoku
-Q: How do we use constraint propagation to solve the diagonal sudoku problem?
-A: The constraint: for every unit there is a unique set of numbers from 1 to 9. In the regular sudoku puzzle we
-only propagate this constraint for rows, columns and regions. When we are dealing with a diagonal sudoku puzzle, we need
-to include two additional units where this elimination constraint has to be applied: one for the diagonal from top right to bottom left,
-one for the diagonal from top left to bottom right. This new set is added to the whole set of units required to solve just the
+
+Here we use constraint propagation to solve the diagonal sudoku problem. The constraint: for every unit there is a unique set of numbers from 1 to 9. In the regular sudoku puzzle we only propagate this constraint for rows, columns and regions. When we are dealing with a diagonal sudoku puzzle, we need to include two additional units where this elimination constraint has to be applied: one for the diagonal from top right to bottom left, one for the diagonal from top left to bottom right. This new set is added to the whole set of units required to solve just the
 regular sudoku, getting a new total of 29 units (instead of the 27 units for the model of a regular sudoku). Once these units are
 defined, the constraint 'elimination' (unique set of numbers from 1 to 9 for each unit) can be propagated through all the units, helping
 to reduce the puzzle and combined with other techniques (naked twins, only choice, etc) to reach a solution where for every unit,
@@ -42,7 +39,7 @@ If not, please see how to download pygame [here](http://www.pygame.org/download.
 
 ### Code
 
-* `solutions.py` - You'll fill this in as part of your solution.
+* `solutions.py` - This file contains the implementation of the strategies.
 * `solution_test.py` - Do not modify this. You can test your solution by running `python solution_test.py`.
 * `PySudoku.py` - Do not modify this. This is code for visualizing your solution.
 * `visualize.py` - Do not modify this. This is code for visualizing your solution.
